@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://pgh3xcv1snya"]
+[gd_scene load_steps=2 format=3 uid="uid://pgh3xcv1snya"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Menu Manager.gd" id="1_i4rhp"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -9,52 +11,109 @@ offset_right = -2.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 0.99514)
+script = ExtResource("1_i4rhp")
 
 [node name="Button Background" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = 0.672702
+anchor_right = 1.00139
 anchor_bottom = 1.0
-offset_left = 482.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="ColorRect" parent="."]
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.696379
+anchor_top = 0.0312724
+anchor_right = 0.97493
+anchor_bottom = 0.207621
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Play"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 497.0
-offset_top = 15.0
-offset_right = -14.0
-offset_bottom = -382.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.233478, 0.233478, 0.233478, 1)
+color = Color(0.218446, 0.218446, 0.218446, 1)
 
-[node name="Button2" type="ColorRect" parent="."]
+[node name="Label" type="Label" parent="Play"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 497.0
-offset_top = 115.0
-offset_right = -14.0
-offset_bottom = -282.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.233478, 0.233478, 0.233478, 1)
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button3" type="ColorRect" parent="."]
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.696379
+anchor_top = 0.238589
+anchor_right = 0.97493
+anchor_bottom = 0.414938
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Quit"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 497.0
-offset_top = 215.0
-offset_right = -14.0
-offset_bottom = -182.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.233478, 0.233478, 0.233478, 1)
+color = Color(0.218446, 0.218446, 0.218446, 1)
+
+[node name="Label" type="Label" parent="Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Settings" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.696379
+anchor_top = 0.446058
+anchor_right = 0.97493
+anchor_bottom = 0.622407
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.218446, 0.218446, 0.218446, 1)
+
+[node name="Label" type="Label" parent="Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
