@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://jgrrdkitkmpa"]
+[gd_scene load_steps=3 format=3 uid="uid://jgrrdkitkmpa"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/gun_template.gd" id="1_l8oms"]
+[ext_resource type="PackedScene" uid="uid://btc7jhkn6yd28" path="res://Assets/Models/Enemy.gltf" id="2_1ibl7"]
 
 [node name="Gun Template" type="Node3D"]
 script = ExtResource("1_l8oms")
+model = ExtResource("2_1ibl7")
