@@ -1,23 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://32wr16s7yusp"]
+[gd_scene load_steps=5 format=3 uid="uid://32wr16s7yusp"]
 
-[sub_resource type="Environment" id="Environment_c2836"]
-ambient_light_source = 3
-ambient_light_color = Color(0.666722, 0.590919, 0.328468, 1)
-ambient_light_energy = 0.48
-reflected_light_source = 1
-glow_intensity = 0.01
-fog_enabled = true
-fog_mode = 1
-fog_light_color = Color(0.335344, 0.364951, 0.41149, 1)
-fog_light_energy = 0.65
-fog_sun_scatter = 0.07
-fog_density = 1.0
-fog_depth_curve = 2.0
+[ext_resource type="PackedScene" uid="uid://c5soly6fx5hva" path="res://Assets/Entities/player.tscn" id="1_hyjag"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mrv81"]
+sky_top_color = Color(0.202796, 0.163525, 0.153644, 1)
+sky_horizon_color = Color(0.175976, 0.141187, 0.126528, 1)
+sky_curve = 0.0603712
+ground_bottom_color = Color(0.1859, 0.125766, 0.0847318, 1)
+ground_horizon_color = Color(0.135034, 0.0786889, 0.0591861, 1)
+ground_curve = 0.5
+
+[sub_resource type="Sky" id="Sky_rygf8"]
+sky_material = SubResource("ProceduralSkyMaterial_mrv81")
+
+[sub_resource type="Environment" id="Environment_d8ey2"]
+background_mode = 2
+sky = SubResource("Sky_rygf8")
 
 [node name="Arena" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_c2836")
 
 [node name="Player Spawn Point A" type="Marker3D" parent="."]
 unique_name_in_owner = true
@@ -28,6 +28,21 @@ unique_name_in_owner = true
 [node name="Player Spawn Point C" type="Marker3D" parent="."]
 unique_name_in_owner = true
 
-[node name="Terrain" type="Node3D" parent="."]
+[node name="Player" parent="." instance=ExtResource("1_hyjag")]
+transform = Transform3D(1.03523, 0, 0, 0, 1.03523, 0, 0, 0, 1.03523, -0.0682631, 1.77419, -0.0230319)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain"]
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 40, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, -1, 39.9719, 0)
+light_color = Color(0.191487, 0.191487, 0.191487, 1)
+light_energy = 3.574
+light_indirect_energy = 1.41
+light_volumetric_fog_energy = 0.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d8ey2")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -14)

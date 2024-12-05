@@ -1,15 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5soly6fx5hva"]
+[gd_scene load_steps=4 format=3 uid="uid://c5soly6fx5hva"]
+
+[ext_resource type="Script" path="res://Assets/Entities/player.gd" id="1_okict"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ccjnj"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_prtqs"]
 
 [node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+floor_max_angle = 0.610865
+script = ExtResource("1_okict")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_ccjnj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
 mesh = SubResource("CapsuleMesh_prtqs")
+skeleton = NodePath("../..")

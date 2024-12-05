@@ -1,14 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://cu8xn0ykk45hj"]
 
-[ext_resource type="ArrayMesh" uid="uid://bx8se8xtxytuu" path="res://Assets/Models/Enemy.obj" id="1_bf708"]
+[ext_resource type="PackedScene" uid="uid://btc7jhkn6yd28" path="res://Assets/Models/Enemy.gltf" id="1_7cx4c"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nty4n"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_lc54n"]
+size = Vector3(1, 1.48096, 0.286377)
 
 [node name="Enemy" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.58307e-05, -0.00490391, -0.00265002)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_nty4n")
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.0126892, -0.0376312)
+shape = SubResource("BoxShape3D_lc54n")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0.0653737, -0.96826, -0.351418)
-mesh = ExtResource("1_bf708")
+[node name="Enemy" parent="." instance=ExtResource("1_7cx4c")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -0.8, 0)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
