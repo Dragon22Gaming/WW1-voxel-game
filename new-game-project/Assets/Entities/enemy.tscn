@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://cu8xn0ykk45hj"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nty4n"]
+[ext_resource type="ArrayMesh" uid="uid://bx8se8xtxytuu" path="res://Assets/Models/Player.obj" id="1_bf708"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_q1rrk"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nty4n"]
 
 [node name="Enemy" type="CharacterBody3D"]
 
@@ -10,4 +10,5 @@
 shape = SubResource("CapsuleShape3D_nty4n")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_q1rrk")
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0.069, -0.973, -0.35)
+mesh = ExtResource("1_bf708")
