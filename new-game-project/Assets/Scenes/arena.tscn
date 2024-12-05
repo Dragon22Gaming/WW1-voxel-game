@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://32wr16s7yusp"]
+
+[sub_resource type="Environment" id="Environment_c2836"]
+ambient_light_source = 3
+ambient_light_color = Color(0.666722, 0.590919, 0.328468, 1)
+ambient_light_energy = 0.48
+reflected_light_source = 1
+glow_intensity = 0.01
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.335344, 0.364951, 0.41149, 1)
+fog_light_energy = 0.65
+fog_sun_scatter = 0.07
+fog_density = 1.0
+fog_depth_curve = 2.0
+
+[node name="Arena" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_c2836")
