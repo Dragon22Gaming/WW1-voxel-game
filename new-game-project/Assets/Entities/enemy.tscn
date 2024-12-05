@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cu8xn0ykk45hj"]
 
-[ext_resource type="ArrayMesh" uid="uid://bx8se8xtxytuu" path="res://Assets/Models/Player.obj" id="1_bf708"]
+[ext_resource type="ArrayMesh" uid="uid://bx8se8xtxytuu" path="res://Assets/Models/Enemy.obj" id="1_bf708"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nty4n"]
 

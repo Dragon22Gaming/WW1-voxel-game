@@ -10,9 +10,23 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
+config/name="WW1 Gaem"
+config/description="WW1 Gaem For humanities lol"
+config/version="0.01"
+run/main_scene="res://Assets/Menus/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://Assets/Images/icon.svg"
+config/macos_native_icon="res://Assets/Images/icon.svg"
+config/windows_native_icon="res://Assets/Images/icon.svg"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=480
+window/size/mode=2
+window/size/resizable=false
+window/size/borderless=true
 
 [rendering]
 
