@@ -10,5 +10,5 @@
 shape = SubResource("CapsuleShape3D_nty4n")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0.069, -0.973, -0.35)
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0.0653737, -0.96826, -0.351418)
 mesh = ExtResource("1_bf708")
