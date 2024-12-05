@@ -18,3 +18,16 @@ fog_depth_curve = 2.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c2836")
+
+[node name="Player Spawn Point A" type="Marker3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Player Spawn Point B" type="Marker3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Player Spawn Point C" type="Marker3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Terrain" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain"]

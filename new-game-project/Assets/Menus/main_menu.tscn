@@ -18,8 +18,9 @@ script = ExtResource("1_i4rhp")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.672702
-anchor_right = 1.00139
-anchor_bottom = 1.0
+anchor_top = -0.0248963
+anchor_right = 1.01811
+anchor_bottom = 1.02697
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
@@ -28,13 +29,16 @@ metadata/_edit_use_anchors_ = true
 [node name="Play" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.696379
+anchor_left = 0.696
 anchor_top = 0.0312724
 anchor_right = 0.97493
-anchor_bottom = 0.207621
+anchor_bottom = 0.29
+offset_left = 0.271973
+offset_top = -0.0732965
+offset_right = 0.000244141
+offset_bottom = 0.219986
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Play"]
 layout_mode = 1
@@ -43,6 +47,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.218446, 0.218446, 0.218446, 1)
 
 [node name="Label" type="Label" parent="Play"]
@@ -59,13 +64,16 @@ vertical_alignment = 1
 [node name="Quit" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.696379
-anchor_top = 0.238589
+anchor_left = 0.696
+anchor_top = 0.353
 anchor_right = 0.97493
-anchor_bottom = 0.414938
+anchor_bottom = 0.612
+offset_left = 0.271973
+offset_top = -0.146011
+offset_right = 0.000244141
+offset_bottom = 0.0159912
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Quit"]
 layout_mode = 1
@@ -74,6 +82,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.218446, 0.218446, 0.218446, 1)
 
 [node name="Label" type="Label" parent="Quit"]
@@ -90,13 +99,16 @@ vertical_alignment = 1
 [node name="Settings" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.696379
-anchor_top = 0.446058
-anchor_right = 0.97493
-anchor_bottom = 0.622407
+anchor_left = 0.696
+anchor_top = 0.685
+anchor_right = 0.975
+anchor_bottom = 0.944
+offset_left = 0.271973
+offset_top = -0.170044
+offset_right = -0.0499878
+offset_bottom = -0.00802612
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Settings"]
 layout_mode = 1
@@ -105,6 +117,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.218446, 0.218446, 0.218446, 1)
 
 [node name="Label" type="Label" parent="Settings"]
@@ -117,3 +130,18 @@ grow_vertical = 2
 text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.00488
+offset_right = -234.0
+offset_bottom = 1.00488
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
