@@ -1,30 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://32wr16s7yusp"]
+[gd_scene load_steps=4 format=3 uid="uid://32wr16s7yusp"]
 
-[ext_resource type="PackedScene" uid="uid://c5soly6fx5hva" path="res://Assets/Entities/player.tscn" id="1_hyjag"]
+[ext_resource type="PackedScene" uid="uid://be60ypykaswsk" path="res://Assets/Entities/Player.tscn" id="1_hegsc"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mrv81"]
-sky_top_color = Color(0.202796, 0.163525, 0.153644, 1)
-sky_horizon_color = Color(0.175976, 0.141187, 0.126528, 1)
-sky_curve = 0.1
-ground_bottom_color = Color(0.148395, 0.0975332, 0.0628193, 1)
-ground_horizon_color = Color(0.126918, 0.0729625, 0.0542867, 1)
-ground_curve = 0.158259
-sun_angle_max = 20.53
-sun_curve = 0.665742
+[sub_resource type="BoxShape3D" id="BoxShape3D_1n0tc"]
+size = Vector3(100, 1, 100)
 
-[sub_resource type="Sky" id="Sky_rygf8"]
-sky_material = SubResource("ProceduralSkyMaterial_mrv81")
-
-[sub_resource type="Environment" id="Environment_d8ey2"]
-background_mode = 2
-sky = SubResource("Sky_rygf8")
-fog_enabled = true
-fog_light_color = Color(0.234358, 0.152951, 0.0949572, 1)
-fog_density = 0.097
-
-[sub_resource type="BoxMesh" id="BoxMesh_uufhc"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bd2xq"]
+[sub_resource type="BoxMesh" id="BoxMesh_m05pr"]
+size = Vector3(100, 1, 100)
 
 [node name="Arena" type="Node3D"]
 
@@ -37,9 +19,6 @@ unique_name_in_owner = true
 [node name="Player Spawn Point C" type="Marker3D" parent="."]
 unique_name_in_owner = true
 
-[node name="Player" parent="." instance=ExtResource("1_hyjag")]
-transform = Transform3D(1.03523, 0, 0, 0, 1.03523, 0, 0, 0, 1.03523, -0.0682631, 1.77419, -0.0230319)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, -1, 39.9719, 0)
 light_color = Color(0.191487, 0.191487, 0.191487, 1)
@@ -47,18 +26,29 @@ light_energy = 3.574
 light_indirect_energy = 1.41
 light_volumetric_fog_energy = 0.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_d8ey2")
+[node name="Terrain" type="Node3D" parent="."]
 
-[node name="Floor" type="Node3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain"]
 
-[node name="Floor Tile" type="StaticBody3D" parent="Floor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0)
+shape = SubResource("BoxShape3D_1n0tc")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor Tile"]
-mesh = SubResource("BoxMesh_uufhc")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_m05pr")
+skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor Tile"]
-shape = SubResource("BoxShape3D_bd2xq")
+[node name="StaticBody3D2" type="StaticBody3D" parent="Terrain"]
+transform = Transform3D(-7.57103e-09, -4.37114e-09, 0.2, -0.1, 0.173205, 0, -0.173205, -0.1, -8.74228e-09, 0, 5.23705, 21.3195)
 
-[node name="GridMap" type="GridMap" parent="."]
-cell_size = Vector3(1, 2, 2)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0)
+shape = SubResource("BoxShape3D_1n0tc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/StaticBody3D2/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00822, 0)
+mesh = SubResource("BoxMesh_m05pr")
+skeleton = NodePath("../../..")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_hegsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

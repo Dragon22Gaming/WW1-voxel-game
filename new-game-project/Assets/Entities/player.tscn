@@ -1,24 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5soly6fx5hva"]
+[gd_scene load_steps=4 format=3 uid="uid://be60ypykaswsk"]
 
-[ext_resource type="Script" path="res://Assets/Entities/player.gd" id="1_okict"]
+[ext_resource type="Script" path="res://Assets/Scripts/player.gd" id="1_va0uu"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_prtqs"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wl3wc"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ccjnj"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ek3vb"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-floor_max_angle = 0.610865
-script = ExtResource("1_okict")
-CAMERA_CONTROLLER = NodePath("CameraController/Camera3D")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_prtqs")
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_va0uu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_ccjnj")
+transform = Transform3D(0.999991, 0.00356418, -0.00221394, -0.00355988, 0.999992, 0.00194989, 0.00222085, -0.00194201, 0.999996, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_wl3wc")
 
-[node name="CameraController" type="Node3D" parent="."]
+[node name="WorldModel" type="Node3D" parent="."]
+unique_name_in_owner = true
 
-[node name="Camera3D" type="Camera3D" parent="CameraController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldModel"]
+transform = Transform3D(0.999998, -0.000359926, 0.00198364, 0.000355766, 0.999998, 0.00210537, -0.00198439, -0.00210466, 0.999996, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_ek3vb")
+
+[node name="Head" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.999975, 0.0067549, 0.00224127, -0.00675234, 0.999977, -0.00115013, -0.00224899, 0.00113496, 0.999997, 0, 1.8, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+unique_name_in_owner = true
+cull_mask = 1048573
