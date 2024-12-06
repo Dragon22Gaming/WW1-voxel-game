@@ -1,7 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://pgh3xcv1snya"]
+[gd_scene load_steps=5 format=3 uid="uid://pgh3xcv1snya"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Menu Manager.gd" id="1_i4rhp"]
 [ext_resource type="Texture2D" uid="uid://hpd33gn5ps06" path="res://Assets/Images/icon.svg" id="2_kjhdg"]
+[ext_resource type="StyleBox" uid="uid://cs038drad4hip" path="res://Assets/Styleboxs, Themes/Button Stylebox.tres" id="3_u6v4q"]
+
+[sub_resource type="Theme" id="Theme_xru5h"]
+Button/colors/font_color = Color(0.854541, 0.854541, 0.854541, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.68909, 0.68909, 0.68909, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = null
+Button/icons/icon = null
+Button/styles/disabled = ExtResource("3_u6v4q")
+Button/styles/disabled_mirrored = ExtResource("3_u6v4q")
+Button/styles/focus = ExtResource("3_u6v4q")
+Button/styles/hover = ExtResource("3_u6v4q")
+Button/styles/hover_mirrored = ExtResource("3_u6v4q")
+Button/styles/hover_pressed = ExtResource("3_u6v4q")
+Button/styles/hover_pressed_mirrored = ExtResource("3_u6v4q")
+Button/styles/normal = null
+Button/styles/normal_mirrored = null
+Button/styles/pressed = ExtResource("3_u6v4q")
+Button/styles/pressed_mirrored = ExtResource("3_u6v4q")
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -14,6 +48,19 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.99514)
 script = ExtResource("1_i4rhp")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.002
+anchor_right = 0.815
+anchor_bottom = 1.0
+offset_top = -0.3
+offset_right = -3.25
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kjhdg")
 
 [node name="Button Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -33,6 +80,7 @@ anchor_right = 1.0
 anchor_bottom = 0.315385
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_xru5h")
 
 [node name="ColorRect" type="ColorRect" parent="Button Background/Play"]
 layout_mode = 1
@@ -63,6 +111,7 @@ anchor_right = 0.999448
 anchor_bottom = 0.659863
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_xru5h")
 
 [node name="ColorRect" type="ColorRect" parent="Button Background/Quit"]
 layout_mode = 1
@@ -93,6 +142,7 @@ anchor_right = 0.999448
 anchor_bottom = 0.998957
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_xru5h")
 
 [node name="ColorRect" type="ColorRect" parent="Button Background/Settings"]
 layout_mode = 1
@@ -114,19 +164,6 @@ grow_vertical = 2
 text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.002
-anchor_right = 0.815
-anchor_bottom = 1.0
-offset_top = -0.3
-offset_right = -0.250061
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_kjhdg")
 
 [connection signal="pressed" from="Button Background/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Button Background/Quit" to="." method="_on_quit_pressed"]

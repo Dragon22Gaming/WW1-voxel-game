@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var auto_bhop: bool = true
 @export var walk_speed: float = 7.0
 @export var sprint_speed: float = 8.5
+@export var gravity: float = -120.0
 
 var wish_dir: Vector3 = Vector3.ZERO
 
@@ -29,7 +30,7 @@ func _process(_delta):
 	pass
 
 func _handle_air_physics(delta) -> void:
-	velocity.y = ProjectSettings.get_setting("physics/3d/default_gravity") * delta
+	self.velocity.y = clamp((delta * gravity) + self.velocity.y, -16, 90)
 
 func _handle_ground_physics(_delta) -> void:
 	self.velocity.x = wish_dir.x * walk_speed
@@ -40,7 +41,9 @@ func _physics_process(delta):
 	#depending on the players direction, negate or do not negate the movement commands
 	wish_dir = self.global_transform.basis * Vector3(input_dir.x, 0., input_dir.y)
 	
-	if is_on_floor():
-		_handle_ground_physics(delta)
-	else:
-		_handle_air_physics(delta)
+	match is_on_floor():
+		true:
+			_handle_ground_physics(delta)
+		false:
+			_handle_air_physics(delta)
+	move_and_slide()

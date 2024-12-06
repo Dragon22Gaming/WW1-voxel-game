@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://be60ypykaswsk"]
+[gd_scene load_steps=5 format=3 uid="uid://be60ypykaswsk"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/player.gd" id="1_va0uu"]
+[ext_resource type="PackedScene" uid="uid://ghw5021p4any" path="res://Assets/Models/gun.gltf" id="2_4e6fg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wl3wc"]
 
@@ -27,3 +28,9 @@ transform = Transform3D(0.999975, 0.0067549, 0.00224127, -0.00675234, 0.999977, 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 unique_name_in_owner = true
 cull_mask = 1048573
+
+[node name="Gun" type="Node3D" parent="Head/Camera3D"]
+transform = Transform3D(1, -4.87967e-09, -3.0268e-09, 2.43062e-10, 1, -7.33417e-09, 2.32831e-10, -1.16415e-10, 1, 0, 0, 0)
+
+[node name="gun" parent="Head/Camera3D/Gun" instance=ExtResource("2_4e6fg")]
+transform = Transform3D(-0.15, 5.9589e-10, -1.30094e-08, 3.80851e-12, 0.15, -1.45519e-11, 1.28348e-08, 5.82077e-11, -0.15, 0.246671, -0.757407, -0.617027)

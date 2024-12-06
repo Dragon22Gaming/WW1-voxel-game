@@ -12,19 +12,24 @@ size = Vector3(100, 1, 100)
 
 [node name="Player Spawn Point A" type="Marker3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35)
 
 [node name="Player Spawn Point B" type="Marker3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -35)
 
 [node name="Player Spawn Point C" type="Marker3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -35)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, -1, 39.9719, 0)
-light_color = Color(0.191487, 0.191487, 0.191487, 1)
-light_energy = 3.574
-light_indirect_energy = 1.41
+light_color = Color(0.866667, 0.87451, 1, 1)
+light_energy = 0.4
 light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_opacity = 0.65
+shadow_blur = 10.0
 
 [node name="Terrain" type="Node3D" parent="."]
 
