@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://be60ypykaswsk"]
+[gd_scene load_steps=8 format=3 uid="uid://be60ypykaswsk"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/player.gd" id="1_va0uu"]
 [ext_resource type="PackedScene" uid="uid://ghw5021p4any" path="res://Assets/Models/gun.gltf" id="2_4e6fg"]
+[ext_resource type="Script" path="res://Assets/Managers/Weapon_Manager.gd" id="2_obj74"]
+[ext_resource type="Resource" uid="uid://cx3m7f4juuxuv" path="res://Assets/Guns/m1_Garand.tres" id="3_fklai"]
+[ext_resource type="Script" path="res://Assets/Scripts/Weapon_Resource.gd" id="3_pd038"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wl3wc"]
 
@@ -29,8 +32,18 @@ transform = Transform3D(0.999975, 0.0067549, 0.00224127, -0.00675234, 0.999977, 
 unique_name_in_owner = true
 cull_mask = 1048573
 
-[node name="Gun" type="Node3D" parent="Head/Camera3D"]
-transform = Transform3D(1, -4.87967e-09, -3.0268e-09, 2.43062e-10, 1, -7.33417e-09, 2.32831e-10, -1.16415e-10, 1, 0, 0, 0)
+[node name="Bullet_point" type="Marker3D" parent="Head/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(-0.15, -1.03086e-10, -1.26893e-08, 3.50241e-10, 0.15, 1.1496e-09, 1.26602e-08, -2.91038e-11, -0.15, 0.00260012, -0.0483941, -0.604433)
 
-[node name="gun" parent="Head/Camera3D/Gun" instance=ExtResource("2_4e6fg")]
+[node name="Weapon_Manager" type="Node3D" parent="Head/Camera3D"]
+transform = Transform3D(1, -1.61754e-09, -2.56114e-09, 1.1762e-09, 1, -7.33417e-09, 4.65661e-10, -5.82077e-10, 1, 0, 0, 0)
+script = ExtResource("2_obj74")
+_weapon_resources = Array[ExtResource("3_pd038")]([ExtResource("3_fklai")])
+_start_weapons = Array[String](["m1_Garand"])
+
+[node name="Gun" type="Node3D" parent="Head/Camera3D/Weapon_Manager"]
+transform = Transform3D(1, -2.54772e-09, -4.65661e-10, -7.03949e-10, 1, 0, -2.32831e-10, 3.49246e-10, 1, 0, 0, 0)
+
+[node name="gun" parent="Head/Camera3D/Weapon_Manager/Gun" instance=ExtResource("2_4e6fg")]
 transform = Transform3D(-0.15, 5.9589e-10, -1.30094e-08, 3.80851e-12, 0.15, -1.45519e-11, 1.28348e-08, 5.82077e-11, -0.15, 0.246671, -0.757407, -0.617027)

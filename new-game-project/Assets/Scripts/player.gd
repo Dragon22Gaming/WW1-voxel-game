@@ -6,10 +6,12 @@ extends CharacterBody3D
 @export var walk_speed: float = 7.0
 @export var sprint_speed: float = 8.5
 @export var gravity: float = -120.0
+@onready var Bullet_point = get_node("%Bullet_Point")
 
 var wish_dir: Vector3 = Vector3.ZERO
 
 func _ready():
+	
 	for child in %WorldModel.find_children("*", "VisualInstance3D"):
 		child.set_layer_mask_value(1, false)
 		child.set_layer_mask_value(2, true)

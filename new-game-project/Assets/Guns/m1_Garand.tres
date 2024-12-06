@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Gun_Resource" load_steps=2 format=3 uid="uid://cx3m7f4juuxuv"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Weapon_Resource.gd" id="1_etfud"]
+
+[resource]
+script = ExtResource("1_etfud")
+Gun_Name = ""
+Current_Ammo = 10
+Reserve_Ammo = 90
+Magazine = 10
+Max_Ammo = 10
+Auto_Fire = false
+Reload_Time = 2.2

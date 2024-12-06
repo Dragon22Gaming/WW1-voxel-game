@@ -1,8 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://jgrrdkitkmpa"]
+[gd_scene load_steps=3 format=3 uid="uid://d0druv4n5rjiq"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/gun_template.gd" id="1_l8oms"]
 [ext_resource type="PackedScene" uid="uid://btc7jhkn6yd28" path="res://Assets/Models/Enemy.gltf" id="2_1ibl7"]
 
+[sub_resource type="GDScript" id="GDScript_cb77l"]
+script/source = "extends Node3D
+
+class_name Gun
+
+@export var mag_size: int = 4
+@export var ammo_size: int = 48
+@export var gun_name: String = \"Template\"
+@export var model: Resource
+
+#help im dying
+"
+
 [node name="Gun Template" type="Node3D"]
-script = ExtResource("1_l8oms")
+script = SubResource("GDScript_cb77l")
 model = ExtResource("2_1ibl7")

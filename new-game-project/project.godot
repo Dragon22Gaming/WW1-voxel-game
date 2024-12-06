@@ -26,12 +26,13 @@ buses/default_bus_layout=""
 
 [autoload]
 
-Global="*res://Assets/Scripts/Global.gd"
+Global="*res://Assets/Managers/Global.tscn"
 Fpscounter="*res://Assets/Overlays/fpscounter.tscn"
 
 [display]
 
-window/size/mode=2
+window/size/mode=3
+window/size/borderless=true
 window/size/always_on_top=true
 
 [input]
